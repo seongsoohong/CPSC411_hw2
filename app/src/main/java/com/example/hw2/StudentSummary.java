@@ -2,6 +2,7 @@ package com.example.hw2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
@@ -25,6 +26,8 @@ public class StudentSummary extends AppCompatActivity {
         students.add(new Student("Bob", "Lim", "1111"));
         students.add(new Student("Seong", "Hong", "0000"));
         students.add(new Student("Bob", "Lim", "1111"));
+
+
 //
 //        ListAdapter myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, str);
 //        ListView myView = (ListView)findViewById(R.id.studentSummaryListview);

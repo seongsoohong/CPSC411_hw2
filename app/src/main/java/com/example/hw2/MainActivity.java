@@ -1,12 +1,16 @@
 package com.example.hw2;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -16,10 +20,14 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ArrayList<Student> students;
     ListView studentSummaryListView;
+    StudentDB mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mDatabase = new StudentDB(this);
+
+
 
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -35,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
         students.add(new Student("Bob", "Lim", "1111"));
         students.add(new Student("Seong", "Hong", "0000"));
         students.add(new Student("Bob", "Lim", "1111"));
+        mDatabase.addData("hello");
+        Cursor data = mDatabase.getData();
+
+        //students.add(new Student(test, "Lim", "1111"));
+        //students.add(new Student(data.getString(1), data.getString(2), data.getString(3)));
+        students.add(new Student(data.getString(2), data.getString(1), data.getString(0)));
+
 //
 //        ListAdapter myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, str);
 //        ListView myView = (ListView)findViewById(R.id.studentSummaryListview);
